@@ -10,9 +10,9 @@ help:
 # Run the 2.1 algorithm.
 .PHONY: 2.1
 2.1:
-	@cd .\Chapter2 && python .\2.1.py
+	@python3 Chapter2/2.1.py
 
 # Run the 2.2 algorithm.
 .PHONY: 2.2
 2.2:
-	@cd .\Chapter2 && python .\2.2.py
+	@python3 Chapter2/2.2.py
