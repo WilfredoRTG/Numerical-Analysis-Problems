@@ -71,7 +71,7 @@ def bisection(f, a, b, TOL, N):
 
 # Test Case 1
 print("\n\nTest 1")
-f = lambda x: x**3 - 4*x**2 - x - 10
+f = lambda x: x**3 + 4*x**2 - 10
 a = 0
 b = 5
 TOL = 10**-3
