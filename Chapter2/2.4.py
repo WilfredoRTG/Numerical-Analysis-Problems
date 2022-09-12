@@ -1,9 +1,11 @@
 from prettytable import PrettyTable as pt
+import numpy as np
+
 ''' 
-    Bisection Algorithm - page 37 - Algorithm 2.1
+    Secante method  - page 54,55 - Algorithm 2.4
     Entry values:
-        Final value a = a
-        Final value b = b
+        Initial aproximation 1 = p0
+        Initial aproximation 2 = p1
         Tolerance = TOL
         Max number of iterations = N
     Ouput:
@@ -11,53 +13,36 @@ from prettytable import PrettyTable as pt
 '''
 
 # ============================================================================ #
-#                              Bisection Algorithm                             #
+#                        Secante method Algorithm                              #
 # ============================================================================ #
-def bisection(f, a, b, TOL, N):
-    # Configuration for prettytable
+
+def Secante(f, p0, p1, TOL, N):
     tb = pt()
     tb.align = "l"
-    tb.field_names = ["n","an", "bn","pn","f(pn)"]
-
-# Step 1
-    i = 1
-    FA = f(a)
-# End Step 1
-
-# Step 2
+    tb.field_names = ["n","p"]
+    i = 2
+    q0 = f(p0)
+    q1 = f(p1)
     while i <= N:
-    # Step 3
-        p = a + (b - a) / 2
-        FP = f(p)
-    # End Step 3
-        tb.add_row([i,a,b,p,FP])
-    # Step 4
-        if (FP == 0) or ((b - a) / 2 < TOL):
+        p = p1 - ((q1*(p1 - p0))/(q1 - q0))
+        tb.add_row([i,p])
+        if abs(p - p1) < TOL:
             return (
-                print(tb),
-                print(f'\np={p}')
-            )
-    # End Step 4
-    
-    # Step 5
+                    print(tb),
+                    print(f'\np={p}')
+                )
+        
         i += 1
-    # End Step 5
-    # Step 6
-        if FA*FP > 0:
-            a = p
-            FA = FP
-        else:
-            b = p
-    # End Step 6
+        p0 = p1
+        q0 = q1
+        p1 = p
+        q1 = f(p)
 
-# End Step 2
-
-# Step 7
     return print(f'\nEl método fracasó después de {N} iteraciones')
-# End Step 7
+
 
 # ============================================================================ #
-#                            End Bisection Algorithm                           #
+#                      Secante method Algorithm                                #
 # ============================================================================ #
 
 
@@ -70,21 +55,21 @@ def bisection(f, a, b, TOL, N):
 
 # Test Case 1
 print("\n\nTest 1")
-f = lambda x: x**3 + 4*x**2 - 10
-a = 0
-b = 5
+f = lambda x : np.cos(x) - x
+p0 = 0.5
+p1 = np.pi/4
 TOL = 10**-3
 N = 100
-bisection(f, a, b, TOL, N)
+Secante(f, p0, p1, TOL, N)
 
 # Test Case 2
-print("\n\nTest 2")
-f = lambda x:  4*x**2 - x - 10
-a = 0
-b = 5
-TOL = 10**-6
-N = 100
-bisection(f, a, b, TOL, N)
+# print("\n\nTest 2")
+# f = lambda x: x**3 + 4*x**2 - 10
+# p0 = 1.5
+# p1 = 1
+# TOL = 10**-3
+# N = 100
+# Secante(f, p0, p1, TOL, N)
 
 # ============================================================================ #
 #                            End Test Cases                                    #
