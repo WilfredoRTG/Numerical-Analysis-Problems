@@ -27,11 +27,15 @@ def bisection(f, a, b, TOL, N):
 
 # Step 2
     while i <= N:
+
     # Step 3
         p = a + (b - a) / 2
         FP = f(p)
     # End Step 3
+
+    # Add data to table
         tb.add_row([i,a,b,p,FP])
+    
     # Step 4
         if (FP == 0) or ((b - a) / 2 < TOL):
             return (
@@ -43,6 +47,7 @@ def bisection(f, a, b, TOL, N):
     # Step 5
         i += 1
     # End Step 5
+    
     # Step 6
         if FA*FP > 0:
             a = p

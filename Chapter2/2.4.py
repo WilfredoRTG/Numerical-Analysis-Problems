@@ -36,7 +36,7 @@ def Secante(f, p0, p1, TOL, N):
         p = p1 - ((q1*(p1 - p0))/(q1 - q0))
     # End Step 3
     
-    # Prettytable add data
+    # Add data to table
         tb.add_row([i,p])
     
     # Step 4
@@ -58,11 +58,12 @@ def Secante(f, p0, p1, TOL, N):
         q1 = f(p)
     # End Step 6
 
+# End Step 2
+
 # Step 7
     return print(f'\nEl método fracasó después de {N} iteraciones')
 # End Step 7
 
-# End Step 2
 
 # ============================================================================ #
 #                      Secante method Algorithm                                #

@@ -29,11 +29,12 @@ def Newton(f, deriv, p0, TOL, N):
 
 # Step 2
     while i <= N:
+
     # Step 3
         p = p0 - f(p0)/deriv(p0)
     # End Step 3
 
-    # Prettytable add data
+    # Add data to table
         tb.add_row([i,p])
     
     # Step 4
@@ -52,11 +53,12 @@ def Newton(f, deriv, p0, TOL, N):
         p0 = p
     # End Step 6
 
+# End Step 2
+
 # Step 7
     return print(f'\nEl método fracasó después de {N} iteraciones')
 # End Step 7
 
-# End Step 2
 
 # ============================================================================ #
 #                      End Newton method Algorithm                             #

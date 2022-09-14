@@ -31,11 +31,12 @@ def fixed_point(f, p0, TOL, N):
 
         # Step 3
             p = f(p0)
-            # print(p)
+            
         # End Step 3
+        
+        # Add data to table
             tb.add_row([i,p0])
 
-            # print(np.float32(abs(p-p0)))
         # Step 4
             if (abs(p - p0) < TOL):
                 return (
@@ -58,6 +59,7 @@ def fixed_point(f, p0, TOL, N):
         return print(f'\nEl método fracasó después de {N} iteraciones')
     # End Step 7
 
+# Exception in case of infinite
     except OverflowError:
         return print(f'\nNo converge')
     
