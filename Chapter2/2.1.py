@@ -2,6 +2,7 @@ from prettytable import PrettyTable as pt
 ''' 
     Bisection Algorithm - page 37 - Algorithm 2.1
     Entry values:
+        function = f
         Final value a = a
         Final value b = b
         Tolerance = TOL

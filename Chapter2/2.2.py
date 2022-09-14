@@ -3,6 +3,7 @@ from prettytable import PrettyTable as pt
 ''' 
     Fixed point iteration Algorithm - page 45,46 - Algorithm 2.2
     Entry values:
+        function = f
         Initial aproximation = p0
         Tolerance = TOL
         Max number of iterations = N
