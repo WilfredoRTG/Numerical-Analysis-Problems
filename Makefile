@@ -55,3 +55,13 @@ help:
 .PHONY: 3.5
 3.5:
 	@python3 Chapter3/3.5.py
+
+# Run the 4.3 algorithm.
+.PHONY: 4.3
+4.3:
+	@python3 Chapter4/4.3.py
+
+# Run the 4.4 algorithm.
+.PHONY: 4.4
+4.4:
+	@python3 Chapter4/4.4.py
